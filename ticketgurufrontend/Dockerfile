@@ -9,6 +9,7 @@ RUN npm ci
 # Copy the rest of the application code to the container
 COPY . .
 # Build the React app
+ENV NODE_OPTIONS=--max-old-space-size=512
 RUN npm run build
 
 FROM nginx:alpine
