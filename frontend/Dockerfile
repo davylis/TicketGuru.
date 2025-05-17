@@ -1,31 +1,36 @@
 # Use an official Node runtime as a parent image
+# Use an official Node runtime as a parent image
 FROM node:22-alpine AS build
+
 # Set the working directory to /app
 WORKDIR /app
+
 # Copy the package.json and package-lock.json to the container
 COPY package*.json ./
+
 # Install dependencies
 RUN npm ci
+
+# Set memory limit for Node.js during build
+ENV NODE_OPTIONS=--max-old-space-size=2048
+
 # Copy the rest of the application code to the container
 COPY . .
+
 # Build the React app
-ENV NODE_OPTIONS=--max-old-space-size=512
 RUN npm run build
 
+# Use Nginx to serve the React app
 FROM nginx:alpine
-# Support running as arbitrary user which belongs to the root group
-# Note that users are not allowed to listen on privileged ports (< 1024)
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx && \
-    chown nginx:root /var/cache/nginx /var/run /var/log/nginx && \
-    # Make /etc/nginx/html/ available to use
-    mkdir -p /etc/nginx/html/ && chmod 777 /etc/nginx/html/ && \
-    # comment user directive as master process is run as user in OpenShift anyhow
-    sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+
 # Copy React build to nginx HTML directory 
 COPY --from=build /app/build /usr/share/nginx/html/
-# Copy nginx-configuration file 
+
+# Copy nginx configuration file 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /usr/share/nginx/html/
+# Expose the port
 EXPOSE 8081
-USER nginx:root
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
