@@ -236,3 +236,13 @@ spring.datasource.username=your_username
 spring.datasource.password=your_password
 spring.jpa.hibernate.ddl-auto=update
 ```
+
+## Käynnistys Dockerin avulla
+
+Luo `.env` tiedoston [.env.example](./.env.example) mallista.
+Ympäristömuuttujan `JWT_SECRET` voi luoda komennolla
+`openssl rand -hex 32`. Kun se on luotu aja:
+
+```sh
+docker compose up -d
+```
