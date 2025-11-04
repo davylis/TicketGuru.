@@ -1,8 +1,9 @@
 # TicketGuru
 
 Application link: https://ticketsystem.davylis.com/login
+
 Login>
-unername:demouser
+username:demouser
 password:demouser123
 
 ## Johdanto
