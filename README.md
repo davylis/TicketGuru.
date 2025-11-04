@@ -1,6 +1,9 @@
 # TicketGuru
 
-Tiimi: Liisa Davydov, Max Lindqvist, Mikko Vitikka, Ossi Lukkarinen, Marjo Ek
+Application link: https://ticketsystem.davylis.com/login
+Login>
+unername:demouser
+password:demouser123
 
 ## Johdanto
 
