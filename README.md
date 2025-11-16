@@ -171,7 +171,6 @@ Kaikki endpointit on kuvattu erillisessä dokumentaatiossa:
 
 ## Palvelintoteutus ja deployment
 - Sovellus buildataan Dockerin tai source-imagen avulla
-- Rahtissa käytetään Deployment YAML -tiedostoja, jotka määrittävät podit, service-tasot ja salaisuudet
 - PostgreSQL käynnistetään siemendatan kanssa
 
 ## Turvallisuusratkaisut
