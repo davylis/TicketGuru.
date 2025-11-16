@@ -166,7 +166,7 @@ Kaikki endpointit on kuvattu erillisessä dokumentaatiossa:
 - Frontend: React + Vite
 - Backend: Spring Boot, JWT-autentikointi
 - Tietokanat: PostreSQL
-- Deployment: Omalla domainilla + Hetzner
+- Deployment: Omalla domainilla + Hetzner Cloud Hosting
 - Päälaitteet: Tietokone, tabletti, älypuhelin
 
 ## Palvelintoteutus ja deployment
