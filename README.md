@@ -166,7 +166,7 @@ Kaikki endpointit on kuvattu erillisessä dokumentaatiossa:
 - Frontend: React + Vite
 - Backend: Spring Boot, JWT-autentikointi
 - Tietokanat: PostreSQL
-- Deployment: CSC Rahti(OpenShift pohjainen)
+- Deployment: Omalla domainilla + Hetzner
 - Päälaitteet: Tietokone, tabletti, älypuhelin
 
 ## Palvelintoteutus ja deployment
